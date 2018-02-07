@@ -21,6 +21,7 @@ import Avatar from "./avatar";
 import AccountDetails from "./accountdetails";
 import UserDetails from "./userdetails";
 import Tags from "./tags";
+import './profile.css';
 
 import tagStore from "./tagstore";
 

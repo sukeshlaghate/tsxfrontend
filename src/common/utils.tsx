@@ -4,6 +4,11 @@ export const If = ({ cond, children }:{cond:any, children:any}) => {
   return result;
 };
 
+export function isDefined(x: any) {
+  return x !== null && x !== undefined;
+}
+
+
 // export const enum GeoCardSize {
 //   mini = GeoCardSize.mini,
 //   tiny = "xsmall",
