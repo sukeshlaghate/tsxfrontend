@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import {
   Button,
@@ -107,7 +108,7 @@ any > {
 
   setEditorRef = (editor : any) => {
     this.editor = editor;
-  };
+  }
 
   @action
   public onTitleChange(event : React.MouseEvent < HTMLSelectElement >, data : any) {
@@ -250,7 +251,7 @@ any > {
         </Dimmer>
 
         <If cond={this.isEditingAvatar}>
-          <Dimmer active {this.isEditingAvatar}>
+          <Dimmer active={this.isEditingAvatar}>
             <Segment.Group compact vertical>
               <AvatarEditor ref={this.setEditorRef} image={this.editing_img_src} width={250} height={250} border={10} color={[255, 255, 255, 0.6]} // RGBA
                 scale={this.zoom} rotate={this.rotate}/>

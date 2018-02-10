@@ -1,3 +1,4 @@
+/// <reference path="../../index.d.ts" />
 import * as React from "react";
 import {
   Button,
@@ -22,9 +23,12 @@ interface iTag {
   category: string;
 }
 
+type Colors = 'red' | 'orange' | 'yellow' | 'olive' | 'green' | 'teal' | 'blue' | 'violet' | 'purple' |
+'pink' | 'brown' | 'grey' | 'black';
+
 @observer
 export default class Tags extends React.Component<any, any> {
-  @observable private selected_tags: [] = new Array<iTag>();
+  @observable private selected_tags: iTag[] = new Array<iTag>();
   @observable
   private category_color_map: Map<string, string> = new Map<string, string>();
   //@observable private tagOptions: Map<string,string[]> = new Map<string, string[]>();
@@ -106,22 +110,22 @@ export default class Tags extends React.Component<any, any> {
 * we leverage the HTML id element to store the tag title and act as unique 
 * identifier ;)
 */
-  public onDeleteTag(e: React.MouseEvent<any>) {
+  public onDeleteTag(e: React.MouseEvent<HTMLLabelElement>) {
     console.log("delete tag =====>");
-    console.log(e.target.id);
+    console.log((e.target as HTMLLabelElement).id);
     _.remove(this.selected_tags, tag => {
-      return tag.title === e.target.id;
+      return tag.title === (e.target as HTMLLabelElement).id;
     });
   }
 
   public onTagSelection(
     event: React.MouseEvent<HTMLSelectElement>,
-    data: object
+    data: any
   ) {
     //console.log("<========= OnTagSelection start============>");
     //console.log(data.value);
     // console.log("<========= OnTagSelection end============>");
-    let tags = data.value.map(item => {
+    let tags = data.value.map((item:any) => {
       let tag = { title: item.title, category: item.category };
       return tag;
     });
@@ -141,11 +145,11 @@ export default class Tags extends React.Component<any, any> {
   public get getTagList(): JSX.Element {
     const headers = [];
     for (let [lbl_key, value] of this.category_color_map) {
-      headers.push({<Label id=lbl_key, key = lbl_key, inverted color={value} content=lbl_key/>});
+      headers.push(<Label id={lbl_key} key={lbl_key} inverted={true} color={(value as Colors)} content={lbl_key}/>);
     }
 
     return (
-      <Segment compact size="tiny" basic vertical className="bd-0">
+    <Segment compact={true} size={"tiny"} basic={true} vertical={true} className={"bd-0"}>
         <List>
           <List.Item >
             {headers}
@@ -156,12 +160,12 @@ export default class Tags extends React.Component<any, any> {
   }
   public render(): JSX.Element {
     return (
-      <Segment compact size="tiny" basic vertical className="bd-0">
+      <Segment compact={true} size={"tiny"} basic={true} vertical={true} className={"bd-0"}>
         <Label className="content-left-label">
           <Icon name="tags" />
           {"Your Tags"}
         </Label>
-        <Card className=" profile__card bg-gray-200 bd-0">
+        <Card className={" profile__card bg-gray-200 bd-0"}>
           <Card.Content textAlign="left">
             {this.selected_tags.map(tag => (
               <Grid.Column>
@@ -171,7 +175,7 @@ export default class Tags extends React.Component<any, any> {
                   style={{
                     marginBottom: "2px"
                   }}
-                  color={this.category_color_map.get(tag.category)}
+                  color={(this.category_color_map.get(tag.category) as Colors)}
                 >
                   {tag.title}{" "}
                   <Icon
@@ -184,7 +188,7 @@ export default class Tags extends React.Component<any, any> {
               </Grid.Column>
             ))}
           </Card.Content>
-          <Card.Content extra>
+          <Card.Content extra={true}>
             {/*<Dropdown
               button
               className="icon"
@@ -198,14 +202,14 @@ export default class Tags extends React.Component<any, any> {
               options={this.tagOptions}
             />*/}
             <Button
-              floated="right"
-              size="tiny"
-              icon
-              color="olive"
-              labelPosition="left"
+              floated={"right"}
+              size={"tiny"}
+              icon={true}
+              color={"olive"}
+              labelPosition={"left"}
               onClick={this.onAddTag}
             >
-              <Icon name="add" />
+              <Icon name={"add"} />
               Add Tags
             </Button>
           </Card.Content>

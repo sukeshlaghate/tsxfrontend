@@ -1,4 +1,4 @@
-export default const tagStore = [
+export const tagStore = [
   {
     key: "less",
     text: "Less",

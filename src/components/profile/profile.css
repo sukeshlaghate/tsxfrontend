@@ -1,0 +1,65 @@
+.profile__avatar {
+    width: auto;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: left;
+    margin: auto;
+}
+
+.profile__avatar>.avatar-container {
+    padding: 0px 10px;
+}
+
+.profile__header {
+    font-family: "Montserrat", "Helvetica", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    margin: 5px 10px 0px;
+    font-weight: 300;
+    background-color: #dee2e6;
+    color: #66615b;
+}
+
+
+/* Magen IoT dashboard profile styles*/
+
+.content-left-label {
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    text-align: "left" !important;
+    letter-spacing: 0.5px !important;
+    background-color: #dee2e6 !important;
+    padding: 10px 15px !important;
+    display: block !important;
+    margin-bottom: 1px !important;
+}
+
+.profile_image_label {
+    font-size: 11px !important;
+    text-transform: uppercase !important;
+    text-align: "left" !important;
+    letter-spacing: 0.5px !important;
+    background-color: #dee2e6 !important;
+    padding: 10px 15px !important;
+    margin-bottom: 15px !important;
+}
+
+.bg-gray-200 {
+    background-color: #e9ecef !important;
+}
+
+.profile__card {
+    width: auto !important;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+.bd-0 {
+    border-width: 0 !important;
+}
+
+.errorPopup {
+    border-radius: 5;
+    opacity: 0.7;
+    padding: 0.86em;
+    color: #ff6961;
+}

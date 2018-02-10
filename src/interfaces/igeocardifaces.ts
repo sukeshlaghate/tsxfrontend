@@ -1,4 +1,3 @@
-///<reference path='../index.d.ts'/>
 
 export const enum GeoCardSize {
   mini = "xxsmall",
